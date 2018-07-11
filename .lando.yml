@@ -1,0 +1,19 @@
+name: d8theming
+recipe: drupal8
+config:
+  webroot: .
+  php: '7.2'
+services:
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+  pma:
+    type: phpmyadmin
+    host:
+      - database
+proxy:
+  mailhog:
+    - mail.d8theming.lndo.site
+  pma:
+    - pma.d8theming.lndo.site
